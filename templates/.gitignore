@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+env/
+
+# Django
+db.sqlite3
+/staticfiles/
+/media/
+/.env
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Logs
+*.log
+logs/
+
+# Testing / coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# Misc
+*.bak
+*.tmp
+*.swp

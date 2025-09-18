@@ -1,0 +1,182 @@
+
+{% extends "admin/index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+ <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, rgba(255, 153, 102, 0), rgba(255, 94, 98, 0)); /* Gradient background */
+            color: #333;
+        }
+
+        table {
+            width: 90%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 12px; /* Rounded corners for the table */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add shadow for a modern look */
+        }
+
+        th, td {
+            padding: 18px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+        }
+
+        th {
+            background: linear-gradient(135deg, #1c4224, #406451); /* Stylish orange gradient header */
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+            color: #333;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly brighter background for even rows */
+        }
+
+        tr:hover {
+            background-color: rgba(251, 116, 0, 0.2); /* Highlight the row on hover with soft orange */
+            cursor: pointer; /* Pointer cursor to indicate interactivity */
+        }
+
+        a {
+            color: #1c4224;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #007bff; /* Bright blue for hover effect on links */
+        }
+
+        /* Add subtle animation */
+        table {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+</style>
+
+    <style>
+
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  #search {
+    width: 20%;
+  }
+</style>
+
+</head>
+
+
+<body>
+
+
+<div  class="search-container">
+    <input type="text" id="search" placeholder="Search..." class="form-control" onkeyup="filterTable()">
+  </div>
+
+<div id="noResultsMessage" style="display: none; color: red; text-align: center; font-size: 16px; font-weight: bold; background-color: white; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-top: 20px;">
+    No results found.
+</div>
+
+
+
+<table width="1000" border="1" id="dataTable">
+
+   <tr>
+                     <th width="150">S.no</th>
+                   <th width="150">Name</th>
+                    <th width="150">Age</th>
+                    <th width="150">Gender</th>
+                    <th width="150">Address</th>
+                   <th width="150">Location</th>
+                    <th width="150">Email</th>
+                   <th width="150">Phone Number</th>
+                </tr>
+
+     {% for i in data %}
+  <tr>
+  <td>{{ forloop.counter }}</td>
+    <td>{{i.name}}</td>
+    <td>{{ i.age }}</td>
+    <td>{{ i.gender }}</td>
+    <td>{{ i.place }}<br>{{ i.post_office }}<br>{{i.pincode}}</td>
+    <td><a href="https://www.google.co.in/maps/?={{ i.latitude }},{{ i.longitude }}">Trace</a></td>
+    <td>{{ i.email }}</td>
+    <td>{{ i.phone_number }}</td>
+  </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+
+
+<script>
+
+function filterTable() {
+  var input, filter, table, tr, td, i, j, txtValue, visibleRowCount;
+  input = document.getElementById("search");
+  filter = input.value.toLowerCase();
+  table = document.getElementById("dataTable");
+  tr = table.getElementsByTagName("tr");
+  visibleRowCount = 0;
+
+  // Hide the "No results found" message initially
+  document.getElementById("noResultsMessage").style.display = "none";
+
+  for (i = 1; i < tr.length; i++) { // Start from 1 to skip header row
+    tr[i].style.display = "none";
+    td = tr[i].getElementsByTagName("td");
+    for (j = 0; j < td.length; j++) {
+      if (td[j]) {
+        txtValue = td[j].textContent || td[j].innerText;
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+          tr[i].style.display = ""; // Show the row if a match is found
+          visibleRowCount++;
+          break;
+        }
+      }
+    }
+  }
+
+  // If no rows are visible, display the "No results found" message
+  if (visibleRowCount === 0) {
+    document.getElementById("noResultsMessage").style.display = "block";
+  }
+}
+
+</script>
+
+
+
+</html>
+{% endblock %}

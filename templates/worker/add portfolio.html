@@ -1,0 +1,175 @@
+{% extends 'worker/index.html' %}
+
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+ <style>
+    /* General Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+     {#      background-color: #f4f7fc;#}
+{#      margin: 0;#}
+{#      padding: 20px;#}
+    }
+    }
+
+    /* Form Styling */
+    form {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff9a00;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #f4f7fc;
+      font-weight: bold;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    td input[type="text"],
+    td input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+    }
+
+    td input[type="text"]:focus,
+    td input[type="file"]:focus {
+      border-color: #ff9900;
+      outline: none;
+    }
+
+    td input[type="submit"] {
+      background-color: #ff9a00;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    td input[type="submit"]:hover {
+      background-color: #cc7a00;
+    }
+
+    label {
+      font-size: 14px;
+      color: #ff9a00;
+    }
+
+    /* Optional Hover Effect for Table Rows */
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+
+        </div>
+
+        <form action="/add_portfoliobuttonclick" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>Image 1</td>
+                    <td><input type="file" name="fileField" id="fileField"  accept="image/*" required /></td>
+                </tr>
+                <tr>
+                    <td>Image 2</td>
+                    <td><input type="file" name="fileField2" id="fileField2"  accept="image/*" required/></td>
+                </tr>
+                <tr>
+                    <td>Image 3</td>
+                    <td><input type="file" name="fileField3" id="fileField3"  accept="image/*" required /></td>
+                </tr>
+                <tr>
+                    <td>Image 4</td>
+                    <td><input type="file" name="fileField4" id="fileField4"  accept="image/*" required /></td>
+                </tr>
+                <tr>
+                    <td>Work Type</td>
+                    <td><select name="select" id="select">
+                        <option>Painter</option>
+                        <option>Plumber</option>
+                        <option>Electrician</option>
+                        <option>Carpenter</option>
+                        <option>Roofer</option>
+                        <option>Glazier</option>
+                        <option>Welder</option>
+                        <option>Builder</option>
+                        <option>Crane Operator</option>
+                        <option>Gas Fitter</option>
+                        <option>Iron Worker</option>
+                        <option>Plasterer</option>
+                        <option>Sheet Metal Worker</option>
+                        <option>Architect</option>
+                        <option>Civil Engineer</option>
+                        <option>Contractor</option>
+                        <option>Flooring Installer</option>
+                        <option>Surveyor</option>
+                        <option>Tile Setter</option>
+                        <option>Brickmason</option>
+                        <option>Cost Estimator</option>
+                        <option>Safety Manager</option>
+                        <option>Construction Manager</option>
+                        <option>Equipment Operator</option>
+                        <option>Drywaller</option>
+                        <option>Insulation Worker</option>
+                        <option>Elevator Mechanic</option>
+                        <option>Interior Designer</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Experience</td>
+                    <td><textarea name="textarea" id="textarea" cols="45" rows="5" required></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="form-footer">
+                        <input type="submit" name="button" id="button" value="Submit" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,196 @@
+{% extends 'worker/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            {#      background-color: #f4f7fc;#}
+{#      margin: 0;#}
+{#      padding: 20px;#}
+    }
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        td {
+            padding: 10px;
+            font-size: 14px;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        input[type="file"],
+        select,
+        textarea,
+        input[type="submit"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #fb7400; /* Orange */
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e15b00; /* Darker orange */
+        }
+
+        select {
+            background-color: #f9f9f9;
+            border-color: #e1e1e1;
+        }
+
+        textarea {
+            resize: vertical;
+            background-color: #f9f9f9;
+            border-color: #e1e1e1;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        h1 {
+            color: #fb7400;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .form-container {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header {
+            background-color: #fb7400;
+            color: white;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer a {
+            text-decoration: none;
+            color: #fb7400;
+        }
+
+        .form-footer a:hover {
+            color: #e15b00;
+        }
+    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div class="form-container">
+<form action="/edit_portfoliobuttonclick/{{ data.id }}" method="post" enctype="multipart/form-data">
+<table width="500" border="1">
+  <tr>
+    <td>Image 1</td>
+    <td><label for="textfield"></label>
+      <label for="fileField"></label>
+        <img src="{{ data.image1 }}" width="70" height="90">
+      <input type="file" name="fileField" id="fileField"  accept="image/*"  /></td>
+  </tr>
+  <tr>
+    <td>Image 2</td>
+    <td><label for="textfield2"></label>
+      <label for="fileField2"></label>
+        <img src="{{ data.image2 }}" width="70" height="90">
+      <input type="file" name="fileField2" id="fileField2"  accept="image/*" /></td>
+  </tr>
+  <tr>
+    <td>Image 3</td>
+    <td><label for="textfield3"></label>
+      <label for="fileField3"></label>
+        <img src="{{ data.image3 }}" width="70" height="90">
+      <input type="file" name="fileField3" id="fileField3"  accept="image/*"  /></td>
+  </tr>
+  <tr>
+    <td height="36">Image 4</td>
+    <td><label for="textfield4"></label>
+      <label for="fileField4"></label>
+        <img src="{{ data.image4 }}" width="70" height="90">
+      <input type="file" name="fileField4" id="fileField4"  accept="image/*" /></td>
+  </tr>
+
+   <tr>
+    <td>Work Type</td>
+    <td><label for="textfield7"></label>
+      <label for="select"></label>
+      <select name="select" id="select">
+          <option  {% if data.type == "Painter" %} selected {% endif %}>Painter</option>
+          <option  {% if data.type == "Plumper" %} selected {% endif %}>Plumper</option>
+          <option  {% if data.type == "Electrician" %} selected {% endif %}>Electrician</option>
+          <option  {% if data.type == "Electrician" %} selected {% endif %}>carpenters</option>
+          <option  {% if data.type == "Roofer" %} selected {% endif %}>Roofer</option>
+          <option  {% if data.type == "Glazier" %} selected {% endif %}>Glazier</option>
+          <option  {% if data.type == "Welder" %} selected {% endif %}>Welder</option>
+          <option  {% if data.type == "Builders" %} selected {% endif %}>Builders</option>
+          <option  {% if data.type == "Crane operator" %} selected {% endif %}>Crane operator</option>
+          <option  {% if data.type == "Gas fitters" %} selected {% endif %}>Gas fitters</option>
+          <option  {% if data.type == "Iron workers" %} selected {% endif %}>Iron workers</option>
+          <option  {% if data.type == "Plasteres" %} selected {% endif %}>Plasteres</option>
+          <option  {% if data.type == "Sheet metal worker" %} selected {% endif %}>Sheet metal worker</option>
+          <option  {% if data.type == "Architect" %} selected {% endif %}>Architect</option>
+          <option  {% if data.type == "Civil Engineer" %} selected {% endif %}>Civil Engineer</option>
+          <option  {% if data.type == "Contractor" %} selected {% endif %}>Contractor</option>
+          <option  {% if data.type == "Flooring installer" %} selected {% endif %}>Flooring installer</option>
+          <option  {% if data.type == "Surveyor" %} selected {% endif %}>Surveyor</option>
+          <option  {% if data.type == "Tile setter" %} selected {% endif %}>Tile setter</option>
+          <option  {% if data.type == "Brickmason" %} selected {% endif %}>Brickmason</option>
+          <option  {% if data.type == "Cost estimator" %} selected {% endif %}>Cost estimator</option>
+          <option  {% if data.type == "Safety manager" %} selected {% endif %}>Safety manager</option>
+          <option  {% if data.type == "Construction manager" %} selected {% endif %}>Construction manager</option>
+          <option  {% if data.type == "Equipment operator" %} selected {% endif %}>Equipment operator</option>
+          <option  {% if data.type == "Dry waller" %} selected {% endif %}>Dry waller</option>
+          <option  {% if data.type == "Isolation worker" %} selected {% endif %}>Isolation worker</option>
+          <option  {% if data.type == "Elevator mechanic" %} selected {% endif %}>Elevator mechanic</option>
+          <option  {% if data.type == "Interior designer" %} selected {% endif %}>Interior designer</option>
+
+      </select></td>
+  </tr>
+  <tr>
+    <td>Experience</td>
+    <td><label for="textfield8"></label>
+      <label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" required >{{ data.experience }}</textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2"><input type="submit" name="button" id="button" value="Edit" onclick="return confirm('Are you sure?')"/></td>
+  </tr>
+</table>
+
+
+
+</form>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'worker/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+      <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+           {#      background-color: #f4f7fc;#}
+{#      margin: 0;#}
+{#      padding: 20px;#}
+    }
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        td {
+            padding: 10px;
+            font-size: 14px;
+            vertical-align: middle;
+            text-align: left;
+        }
+
+        input[type="file"],
+        select,
+        textarea,
+        input[type="submit"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #fb7400; /* Orange */
+            color: white;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e15b00; /* Darker orange */
+        }
+
+        select {
+            background-color: #f9f9f9;
+            border-color: #e1e1e1;
+        }
+
+        textarea {
+            resize: vertical;
+            background-color: #f9f9f9;
+            border-color: #e1e1e1;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        h1 {
+            color: #fb7400;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .form-container {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header {
+            background-color: #fb7400;
+            color: white;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer a {
+            text-decoration: none;
+            color: #fb7400;
+        }
+
+        .form-footer a:hover {
+            color: #e15b00;
+        }
+    </style>
+</head>
+
+<body>
+<div class="form-container">
+<form action="" method="get">
+<table width="392" border="1">
+  <tr>
+    <td width="212">Advance amount</td>
+    <td width="168"><label for="textfield"></label>
+      <input type="number" name="textfield" id="textfield" required /></td>
+  </tr>
+  <tr>
+    <td height="26" colspan="2"><input type="submit" name="button" id="button" value="Add" /></td>
+    </tr>
+</table>
+
+</form>
+</div>
+</body>
+</html>
+{% endblock %}

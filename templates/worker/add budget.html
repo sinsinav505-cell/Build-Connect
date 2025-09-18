@@ -1,0 +1,125 @@
+{% extends 'worker/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <style>
+    /* General Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      {#      background-color: #f4f7fc;#}
+{#      margin: 0;#}
+{#      padding: 20px;#}
+    }
+    }
+
+    /* Form Styling */
+    form {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #f4f7fc;
+      font-weight: bold;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    td input[type="text"],
+    td input[type="file"],
+    td input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+    }
+
+    td input[type="text"]:focus,
+    td input[type="file"]:focus,
+    td input[type="number"]:focus
+    {
+      border-color: #ff9900;
+      outline: none;
+    }
+
+    td input[type="submit"] {
+      background-color: #fb7400;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    td input[type="submit"]:hover {
+      background-color: #cc7a00;
+    }
+
+    label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* Optional Hover Effect for Table Rows */
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+  </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div class="form-container">
+<form action="/add_budgetbuttonclick/{{ id }}" method="post">
+<table width="200" border="1">
+  <tr>
+    <td>Budget</td>
+    <td><label for="textfield"></label>
+      <input type="number" name="textfield" id="textfield" required /></td>
+  </tr>
+  <tr>
+    <td height="26" colspan="2"><input type="submit" name="button" id="button" value="Add" /></td>
+    </tr>
+</table>
+
+</form>
+</div>
+</body>
+</html>
+{% endblock %}

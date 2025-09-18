@@ -1,0 +1,148 @@
+{% extends 'worker/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white; /* Make the table background transparent */
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #fb7400; /* Orange border */
+        }
+
+        th {
+            background-color: #fb7400; /* Orange header */
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: rgba(251, 116, 0, 0.1); /* Light orange background for cells */
+            color: black;
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(251, 116, 0, 0.2); /* Lighter orange for even rows */
+        }
+
+        tr:hover {
+            background-color: rgba(251, 116, 0, 0.3); /* Highlight row on hover */
+        }
+
+        a {
+            color: #fb7400;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #007bff; /* Blue hover effect for links */
+        }
+
+    </style>
+    <style>
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  #search {
+    width: 20%;
+  }
+</style>
+</head>
+
+<body>
+<div  class="search-container">
+    <input type="text" id="search" placeholder="Search..." class="form-control" onkeyup="filterTable()">
+  </div>
+
+<div id="noResultsMessage" style="display: none; color: red; text-align: center; font-size: 16px; font-weight: bold; background-color: white; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-top: 20px;">
+    No results found.
+</div>
+
+<table width="800" border="1" id="dataTable">
+  <tr>
+    <th width="61">S.no</th>
+    <th width="142">Review</th>
+    <th width="83">Rating</th>
+    <th width="151">Date</th>
+    <th width="104">User name</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.review }}</td>
+    <td>&nbsp; {% if i.rating == "1" %}
+        ★
+      {% elif i.rating == "2" %}
+        ★★
+      {% elif i.rating == "3" %}
+        ★★★
+      {% elif i.rating == "4" %}
+        ★★★★
+      {% elif i.rating == "5" %}
+        ★★★★★
+      {% endif %}
+</td>
+    <td>&nbsp;{{ i.review_date }}</td>
+    <td>&nbsp;{{ i.USER.name }}</td>
+     
+  </tr>
+    {% endfor %}
+</table>
+
+</body>
+<script>
+
+function filterTable() {
+  var input, filter, table, tr, td, i, j, txtValue, visibleRowCount;
+  input = document.getElementById("search");
+  filter = input.value.toLowerCase();
+  table = document.getElementById("dataTable");
+  tr = table.getElementsByTagName("tr");
+  visibleRowCount = 0;
+
+  // Hide the "No results found" message initially
+  document.getElementById("noResultsMessage").style.display = "none";
+
+  for (i = 1; i < tr.length; i++) { // Start from 1 to skip header row
+    tr[i].style.display = "none";
+    td = tr[i].getElementsByTagName("td");
+    for (j = 0; j < td.length; j++) {
+      if (td[j]) {
+        txtValue = td[j].textContent || td[j].innerText;
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+          tr[i].style.display = ""; // Show the row if a match is found
+          visibleRowCount++;
+          break;
+        }
+      }
+    }
+  }
+
+  // If no rows are visible, display the "No results found" message
+  if (visibleRowCount === 0) {
+    document.getElementById("noResultsMessage").style.display = "block";
+  }
+}
+
+</script>
+</html>
+{% endblock %}

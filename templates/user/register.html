@@ -1,0 +1,498 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#  <style>#}
+{#    /* General Styles */#}
+{#    * {#}
+{#      margin: 0;#}
+{#      padding: 0;#}
+{#      box-sizing: border-box;#}
+{#      font-family: 'Poppins', sans-serif;#}
+{#    }#}
+{##}
+{#    body {#}
+{#      display: flex;#}
+{#      justify-content: center;#}
+{#      align-items: center;#}
+{#      min-height: 100vh;#}
+{#      background: linear-gradient(to right, #003366, #004080, #0059b3, #0073e6);#}
+{#    }#}
+{##}
+{#    .wrapper {#}
+{#      background: #fff;#}
+{#      border-radius: 15px;#}
+{#      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);#}
+{#      padding: 30px;#}
+{#      max-width: 400px;#}
+{#      width: 100%;#}
+{#    }#}
+{##}
+{#    .wrapper h2 {#}
+{#      text-align: center;#}
+{#      font-size: 28px;#}
+{#      margin-bottom: 20px;#}
+{#      color: #003366;#}
+{#    }#}
+{##}
+{#    .field {#}
+{#      margin-bottom: 15px;#}
+{#    }#}
+{##}
+{#    .field label {#}
+{#      display: block;#}
+{#      margin-bottom: 5px;#}
+{#      font-weight: 500;#}
+{#      color: #333;#}
+{#    }#}
+{##}
+{#    .field input {#}
+{#      width: 100%;#}
+{#      height: 45px;#}
+{#      padding: 10px;#}
+{#      border: 1px solid lightgrey;#}
+{#      border-radius: 8px;#}
+{#      font-size: 14px;#}
+{#      transition: border-color 0.3s;#}
+{#    }#}
+{##}
+{#    .field input:focus {#}
+{#      border-color: #1a75ff;#}
+{#      outline: none;#}
+{#    }#}
+{##}
+{#    .btn {#}
+{#      text-align: center;#}
+{#      margin-top: 20px;#}
+{#    }#}
+{##}
+{#    .btn button {#}
+{#      background: linear-gradient(to right, #003366, #004080);#}
+{#      border: none;#}
+{#      color: #fff;#}
+{#      font-size: 16px;#}
+{#      font-weight: 500;#}
+{#      border-radius: 8px;#}
+{#      padding: 10px 20px;#}
+{#      width: 100%;#}
+{#      cursor: pointer;#}
+{#      transition: background 0.3s;#}
+{#    }#}
+{##}
+{#    .btn button:hover {#}
+{#      background: linear-gradient(to right, #002244, #003366);#}
+{#    }#}
+{#  </style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{##}
+{##}
+{##}
+{#<div class="wrapper">#}
+{#  <div class="title-text">#}
+{#    <div class="title login"><h2>Registration</h2></div>#}
+{#  </div>#}
+{##}
+{#  <div class="form-container">#}
+{##}
+{#    <div class="form-inner">#}
+{#      <!-- Login Form -->#}
+{#      <form action="/user_register_post" method="post" class="login">#}
+{##}
+{#          <div class="field">#}
+{#         <input type="text" name="name" id="textfield" placeholder="Name" />#}
+{#        </div>#}
+{##}
+{##}
+{#          <div class="field">#}
+{#          <input type="text" name="age" id="textfield2" Placeholder="Age" />#}
+{#        </div>#}
+{##}
+{#        <div class="field">#}
+{#        <input type="text" name="phone" id="textfield3" placeholder="Phone no" /></td>#}
+{#        </div>#}
+{##}
+{#           <div class="field">#}
+{#           <input type="text" name="email" id="textfield4" placeholder="Email" /></td>#}
+{#        </div>#}
+{##}
+{##}
+{#          <div class="field">#}
+{#         Male  <input type="radio" value="Male" name="gender" id="textfield5" />#}
+{#   FeMale  <input type="radio" value="Female" name="gender" id="textfield6"/></td>#}
+{#        </div>#}
+{##}
+{#        <div class="field">#}
+{#          <input type="text" name="pin" id="textfield6" placeholder="Pincode" /></td>#}
+{#        </div>#}
+{##}
+{#           <div class="field">#}
+{#         <input type="text" name="post" id="textfield7" placeholder="Postoffice" /></td>#}
+{#        </div>#}
+{##}
+{##}
+{#          <div class="field">#}
+{#         <input type="text" name="place" id="textfield8" placeholder="Place" /></td>#}
+{#        </div>#}
+{##}
+{#        <div class="field">#}
+{#           <input type="text" name="lati" id="textfield9" placeholder="Latitude" /></td>#}
+{#        </div>#}
+{##}
+{##}
+{#          <div class="field">#}
+{#            <input type="text" name="longi" id="textfield10" placeholder="Longitude"  /></td>#}
+{#        </div>#}
+{##}
+{#          <div class="field">#}
+{#         <input type="text" name="passw" id="textfield11"  placeholder="Password" /></td>#}
+{#        </div>#}
+{##}
+{#           <div class="field">#}
+{#        <input type="text" name="cpassw" id="textfield12"  placeholder="Confirm password"  /></td>#}
+{#        </div>#}
+{##}
+{##}
+{#      <div class="btn">#}
+{#        <button type="submit">Register</button>#}
+{#      </div>#}
+{##}
+{#      </form>#}
+{##}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+{##}
+{##}
+{#<form action="/registerbuttonclick" method="post" >#}
+{#<table width="500" border="1">#}
+{#  <tr>#}
+{#    <td>Name</td>#}
+{#    <td><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Age</td>#}
+{#    <td><label for="textfield2"></label>#}
+{#      <input type="text" name="textfield2" id="textfield2" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Phone no</td>#}
+{#    <td><label for="textfield3"></label>#}
+{#      <input type="text" name="textfield3" id="textfield3" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Email</td>#}
+{#    <td><label for="textfield4"></label>#}
+{#      <input type="text" name="textfield4" id="textfield4" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Gender</td>#}
+{#    <td><label for="textfield5"></label>#}
+{#      <input type="text" name="textfield5" id="textfield5" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Pincode</td>#}
+{#    <td><label for="textfield6"></label>#}
+{#      <input type="text" name="textfield6" id="textfield6" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Postoffice</td>#}
+{#    <td><label for="textfield7"></label>#}
+{#      <input type="text" name="textfield7" id="textfield7" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Place</td>#}
+{#    <td><label for="textfield8"></label>#}
+{#      <input type="text" name="textfield8" id="textfield8" /></td>#}
+{#  </tr>#}
+{#    <tr>#}
+{#    <td>Skills</td>#}
+{#    <td><label for="textfield9"></label>#}
+{#      <input type="text" name="s" id="textfield9" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>qualification</td>#}
+{#    <td><label for="textfield10"></label>#}
+{#      <input type="text" name="q" id="textfield10" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Latitude</td>#}
+{#    <td><label for="textfield9"></label>#}
+{#      <input type="text" name="textfield9" id="textfield9" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Longitude</td>#}
+{#    <td><label for="textfield10"></label>#}
+{#      <input type="text" name="textfield10" id="textfield10" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Password</td>#}
+{#    <td><label for="textfield11"></label>#}
+{#      <input type="text" name="textfield11" id="textfield11" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>Confirm password</td>#}
+{#    <td><label for="textfield12"></label>#}
+{#      <input type="text" name="textfield12" id="textfield12" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td colspan="2"><input type="submit" name="button" id="button" value="Register" /></td>#}
+{#    </tr>#}
+{#</table>#}
+{##}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Untitled Document</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+        background-image: url("/static/image2.avif");
+        background-size: cover;
+    {# background: linear-gradient(to right, #003366, #004080, #0059b3, #0073e6);#}
+    }
+
+    .wrapper {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      max-width: 400px;
+     width: 100%;
+     max-height: 90vh; /* Set a max height to enable scrolling */
+     overflow: auto;
+    }
+
+    .wrapper h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #003366;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .field input {
+      width: 100%;
+      height: 45px;
+      padding: 10px;
+      border: 1px solid lightgrey;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .field input:focus {
+      border-color: #1a75ff;
+      outline: none;
+    }
+
+    .field input[type="radio"] {
+      width: auto;
+      height: auto;
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+
+    .btn {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .btn button {
+      background: linear-gradient(to right, #003366, #004080);
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      padding: 10px 20px;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn button:hover {
+      background: linear-gradient(to right, #002244, #003366);
+    }
+
+      .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
+      font-size: 16px;
+      margin-right: 10px; /* Space between label and radio button */
+    }
+
+    .field input[type="radio"] {
+      margin-right: 10px; /* Space between radio button and next label */
+    }
+
+    .field div {
+      display: flex;
+      align-items: center; /* Ensures vertical alignment of radio buttons with text */
+    }
+
+    .field div label {
+      margin-right: 20px; /* Space between Male and Female options */
+    }
+  </style>
+</head>
+
+<body onload="initialize()">
+  <div class="wrapper">
+    <div class="title-text">
+      <div class="title login"><h2>Registration</h2></div>
+    </div>
+
+    <div class="form-container">
+      <div class="form-inner">
+        <!-- Login Form -->
+        <form action="/user_register_post" method="post" class="login">
+          <div class="field">
+            <input type="text" name="name" id="textfield" placeholder="Name" pattern="^[a-zA-Z\s]{2,50}$" required/>
+          </div>
+          <div class="field">
+            <input type="number" name="age" id="textfield2" Placeholder="Age" min="18" max="120" required/>
+          </div>
+          <div class="field">
+            <input type="text" name="phone" id="textfield3" placeholder="Phone no" pattern="[6-9][0-9]{9}" required/>
+          </div>
+          <div class="field">
+            <input type="email" name="email" id="textfield4" placeholder="Email" required/>
+          </div><br>
+{#          <div class="field">#}
+{#            Male  &nbsp;<input type="radio" value="Male" name="gender" id="textfield5" /><br><br>#}
+{#            Female  <input type="radio" value="Female" name="gender" id="textfield6" />#}
+{#          </div>#}
+
+            <div class="field">
+  <div>
+    <label for="textfield5">Male</label>
+    <input type="radio" value="Male" name="gender" id="textfield5" />
+    <label for="textfield6">Female</label>
+    <input type="radio" value="Female" name="gender" id="textfield6" />
+  </div>
+</div><br>
+          <div class="field">
+            <input type="text" name="pin" id="textfield6" placeholder="Pincode" pattern="^\d{6}$" required/>
+          </div>
+          <div class="field">
+            <input type="text" name="post" id="textfield7" placeholder="Postoffice" required/>
+          </div>
+          <div class="field">
+            <input type="text" name="place" id="textfield8" placeholder="Place" required/>
+          </div>
+
+
+          <div class="field">
+              <div id="gmap" style="height: 100px;"></div>
+            <input type="hidden" name="lati" id="lt" placeholder="Latitude" />
+            <input type="hidden" name="longi" id="lg" placeholder="Longitude"  />
+          </div>
+
+
+
+          <div class="field">
+            <input type="password" name="passw" id="textfield11"  placeholder="Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more" required/>
+          </div>
+          <div class="field">
+            <input type="password" name="cpassw" id="textfield12"  placeholder="Confirm password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more" required/>
+          </div>
+          <div class="btn">
+            <button type="submit">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+<style type="text/css">
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+#gmap { width: 100%; height: 680px; border: double; }
+</style>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6v5-2uaq_wusHDktM9ILcqIrlPtnZgEk&sensor=false"></script>
+<script type="text/javascript">
+var map, marker;
+
+function initialize() {
+    var myLatlng = new google.maps.LatLng(11.868536, 75.363197);
+    var myOptions = {
+        zoom: 7,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+    marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map
+    });
+
+    google.maps.event.addListener(map, "click", function(event) {
+        var clickLat = event.latLng.lat();
+        var clickLon = event.latLng.lng();
+        document.getElementById("lt").value = clickLat.toFixed(5);
+        document.getElementById("lg").value = clickLon.toFixed(5);
+        marker.setPosition(new google.maps.LatLng(clickLat, clickLon));
+    });
+
+    GetMylocation();
+}
+
+function GetMylocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    document.getElementById("lt").value = lat;
+    document.getElementById("lg").value = lon;
+
+    var myLatlng = new google.maps.LatLng(lat, lon);
+    map.setCenter(myLatlng);
+    map.setZoom(14);
+    marker.setPosition(myLatlng);
+}
+</script>
+</html>

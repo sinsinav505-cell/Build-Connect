@@ -1,0 +1,235 @@
+{% extends "w/home.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Untitled Document</title>
+  <style>
+    /* General Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      {#      background-color: #f4f7fc;#}
+{#      margin: 0;#}
+{#      padding: 20px;#}
+    }
+    }
+
+    /* Form Styling */
+    form {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #074300;;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #f4f7fc;
+      font-weight: bold;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    td input[type="number"],
+    td input[type="email"],
+    td input[type="text"],
+    td input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+    }
+
+    td input[type="number"]:focus,
+    td input[type="email"]:focus,
+    td input[type="text"]:focus,
+    td input[type="file"]:focus {
+      border-color: #074300;
+      outline: none;
+    }
+
+    td input[type="submit"] {
+      background-color: #074300;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    td input[type="submit"]:hover {
+      background-color: #074300;
+    }
+
+    label {
+      font-size: 14px;
+      color: #074300;
+    }
+
+    /* Optional Hover Effect for Table Rows */
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+ </style>
+</head>
+
+<body onload="initialize()">
+<form action="/user_update/{{ data.id }}" method="post">
+<table width="403" border="1">
+  <tr>
+    <th>Name</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield"  value="{{ data.name }}" pattern="^[a-zA-Z\s]{2,50}$" required/></td>
+  </tr>
+  <tr>
+    <th>Age</th>
+    <td><label for="textfield2"></label>
+      <input type="number" name="textfield2" id="textfield2" value="{{ data.age }}" class="form-control" min="18" max="120" required /></td>
+  </tr>
+  <tr>
+    <th>Phone.no</th>
+    <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" value="{{ data.phone_number }}"  class="form-control" pattern="[6-9][0-9]{9}" required/></td>
+  </tr>
+  <tr>
+   <th>email</th>
+   <td><label for="textfield4"></label>
+     <input type="email" name="textfield4" id="textfield4" value="{{ data.email }}" required /></td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" value="{{ data.gender }}" required /></td>
+  </tr>
+  <tr>
+    <th>Pincode</th>
+    <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6" value="{{ data.pincode }}" pattern="^\d{6}$" required /></td>
+  </tr>
+  <tr>
+    <th>Post office</th>
+    <td><label for="textfield7"></label>
+      <input type="text" name="textfield7" id="textfield7" value="{{ data.post_office }}" required/></td>
+  </tr>
+  <tr>
+    <th>Place</th>
+    <td><label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8"  value="{{ data.place }}" required/></td>
+  </tr>
+  <tr>
+    <th>Choose Location</th>
+    <div class="field">
+        <td><label for="textfield8">Choose location</label>
+              <div id="gmap" style="height: 100px;"></div>
+            <input type="hidden" name="lati" id="lt" placeholder="Latitude" />
+            <input type="hidden" name="longi" id="lg" placeholder="Longitude"  />
+          </div>
+{#  <tr>#}
+{#    <td>password</td>#}
+{#    <td><label for="textfield11"></label>#}
+{#      <input type="text" name="textfield11" id="textfield11" value="{{ data.password }}"/></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>confirm password</td>#}
+{#    <td><label for="textfield12"></label>#}
+{#      <input type="text" name="textfield12" id="textfield12" value="{{ data.confirmpassword }}" /></td>#}
+{#  </tr>#}
+  <tr>
+    <td colspan="2">
+      <input type="submit" name="button" id="button" value="update" onclick="return confirm('Are you sure?')"/></td>
+    </tr>
+
+</table>
+</form>
+</body>
+
+
+
+<style type="text/css">
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+#gmap { width: 100%; height: 680px; border: double; }
+</style>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6v5-2uaq_wusHDktM9ILcqIrlPtnZgEk&sensor=false"></script>
+<script type="text/javascript">
+var map, marker;
+
+function initialize() {
+    var myLatlng = new google.maps.LatLng(11.868536, 75.363197);
+    var myOptions = {
+        zoom: 7,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+    marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map
+    });
+
+    google.maps.event.addListener(map, "click", function(event) {
+        var clickLat = event.latLng.lat();
+        var clickLon = event.latLng.lng();
+        document.getElementById("lt").value = clickLat.toFixed(5);
+        document.getElementById("lg").value = clickLon.toFixed(5);
+        marker.setPosition(new google.maps.LatLng(clickLat, clickLon));
+    });
+
+    GetMylocation();
+}
+
+function GetMylocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    document.getElementById("lt").value = lat;
+    document.getElementById("lg").value = lon;
+
+    var myLatlng = new google.maps.LatLng(lat, lon);
+    map.setCenter(myLatlng);
+    map.setZoom(14);
+    marker.setPosition(myLatlng);
+}
+</script>
+</html>
+{% endblock %}

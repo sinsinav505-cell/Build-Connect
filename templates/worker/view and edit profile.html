@@ -1,0 +1,234 @@
+{% extends 'worker/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+    /* General Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Form Styling */
+    form {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #074300;;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #f4f7fc;
+      font-weight: bold;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    td input[type="number"],
+    td input[type="email"],
+    td input[type="text"],
+    td input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+    }
+
+    td input[type="number"]:focus,
+    td input[type="email"]:focus,
+    td input[type="text"]:focus,
+    td input[type="file"]:focus {
+      border-color: #ff9a00;
+      outline: none;
+    }
+
+    td input[type="submit"] {
+      background-color: #ff9a00;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    td input[type="submit"]:hover {
+      background-color: #ff9a00;
+    }
+
+    label {
+      font-size: 14px;
+      color: #ff9a00;
+    }
+
+    /* Optional Hover Effect for Table Rows */
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+  </style>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body onload="initialize()">
+<div class="form-container">
+<form action="/view_and_edit_profilebuttonclick" method="post">
+<table width="500" border="1">
+  <tr>
+    <td>Name</td>
+    <td>
+      <input type="text" name="textfield" id="textfield" value ="{{ data.name }}" pattern="^[a-zA-Z\s]{2,50}$" required/></td>
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td>
+      <input type="number" name="textfield2" id="textfield2" value = "{{ data.age }}" min="18" max="120" required/></td>
+  </tr>
+  <tr>
+    <td>Phone no</td>
+    <td>
+      <input type="text" name="textfield3" id="textfield3" value = "{{ data.phone_number }}" pattern="[6-9][0-9]{9}" required/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>
+      <input type="email" name="textfield4" id="textfield4" value="{{ data.email }}" required/></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td>
+      <input type="text" name="textfield5" id="textfield5" value="{{ data.gender }} " required/></td>
+  </tr>
+  <tr>
+    <td>Pincode</td>
+    <td>
+      <input type="text" name="textfield6" id="textfield6"  value="{{ data.pincode }}" pattern="^\d{6}$" required/></td>
+  </tr>
+  <tr>
+    <td>Postoffice</td>
+    <td>
+      <input type="text" name="textfield7" id="textfield7"  value="{{ data.post_office }}" required/></td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>
+      <input type="text" name="textfield8" id="textfield8"  value="{{ data.place }}" required/></td>
+  </tr>
+     <tr>
+    <td>Skills</td>
+    <td>
+      <input type="text" name="s" id="textfield8"  value="{{ data.skills }}" required/></td>
+  </tr>
+     <tr>
+    <td>Qualification</td>
+    <td>
+      <input type="text" name="q" id="textfield8"  value="{{ data.qualification }}" required/></td>
+  </tr>
+    <tr>
+    <td>Choose Location</td>
+    <td>
+           <div id="gmap" style="height: 200px"></div>
+      <input type="hidden" name="textfield9" id="lt" value="{{ data.latitude }}" required/>
+      <input type="hidden" name="textfield10" id="lg" value="{{ data.longitude }}" required/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><input type="submit" name="button" id="button" value="Update" onclick="return confirm('Are you sure?')"/></td>
+    </tr>
+</table>
+
+</form>
+</div>
+</body>
+<style type="text/css">
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+#gmap { width: 100%; height: 680px; border: double; }
+</style>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6v5-2uaq_wusHDktM9ILcqIrlPtnZgEk&sensor=false"></script>
+<script type="text/javascript">
+var map, marker;
+
+function initialize() {
+    var myLatlng = new google.maps.LatLng(11.868536, 75.363197);
+    var myOptions = {
+        zoom: 7,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("gmap"), myOptions);
+    marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map
+    });
+
+    google.maps.event.addListener(map, "click", function(event) {
+        var clickLat = event.latLng.lat();
+        var clickLon = event.latLng.lng();
+        document.getElementById("lt").value = clickLat.toFixed(5);
+        document.getElementById("lg").value = clickLon.toFixed(5);
+        marker.setPosition(new google.maps.LatLng(clickLat, clickLon));
+    });
+
+    GetMylocation();
+}
+
+function GetMylocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    document.getElementById("lt").value = lat;
+    document.getElementById("lg").value = lon;
+
+    var myLatlng = new google.maps.LatLng(lat, lon);
+    map.setCenter(myLatlng);
+    map.setZoom(14);
+    marker.setPosition(myLatlng);
+}
+</script>
+
+</html>
+{% endblock %}
